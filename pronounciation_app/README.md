@@ -13,7 +13,7 @@ A lightweight pronunciation practice application that helps users improve their 
 
 1. Clone this repository:
 
-git clone https://github.com/yourusername/pronunciation-app.git
+git clone https://github.com/KATREDDIDURGA/AI-Projects/pronunciation-app.git
 cd pronunciation-app
 Copy
 2. Create a virtual environment (optional but recommended):
