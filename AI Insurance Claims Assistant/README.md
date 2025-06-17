@@ -4,6 +4,8 @@
 
 A professional AI-powered insurance claims processing system demonstrating end-to-end AI engineering skills.
 
+![Architecture Diagram]([image_url_or_path](https://github.com/KATREDDIDURGA/AI-Projects/blob/main/AI%20Insurance%20Claims%20Assistant/Architecture%20Diagram.png))
+
 ## Features
 
 - **Natural Language Claim Processing**: Customers describe incidents naturally, AI extracts structured data
