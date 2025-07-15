@@ -1,0 +1,402 @@
+[
+  {
+    "run_id": "051996e3-2ade-49c4-8672-fcd7dd39b3f0",
+    "query": "lastweek i ordered a mixer grinder and its not working now...I want refund",
+    "trace": {
+      "error": "Transaction not found"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-14T23:50:55.576077",
+        "step_type": "Thought",
+        "description": "User Query Received",
+        "observation": "lastweek i ordered a mixer grinder and its not working now...I want refund"
+      },
+      {
+        "timestamp": "2025-07-14T23:50:55.577417",
+        "step_type": "Action",
+        "description": "Lookup Transaction",
+        "observation": {
+          "error": "Transaction not found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-14T23:50:55.577429"
+  },
+  {
+    "run_id": "70c7e642-5c72-4101-b1c2-e67ea088b3eb",
+    "query": "lastweek i ordered a mixer grinder and its not working now...I want refund",
+    "trace": {
+      "error": "Transaction not found"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-14T23:53:53.401901",
+        "step_type": "Thought",
+        "description": "User Query Received",
+        "observation": "lastweek i ordered a mixer grinder and its not working now...I want refund"
+      },
+      {
+        "timestamp": "2025-07-14T23:53:53.402601",
+        "step_type": "Action",
+        "description": "Lookup Transaction",
+        "observation": {
+          "error": "Transaction not found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-14T23:53:53.402614"
+  },
+  {
+    "run_id": "031c2aa1-de57-414b-89d7-8c422532d5c9",
+    "query": "lastweek i ordered a mixer grinder and its not working now...I want refund",
+    "trace": {
+      "error": "No matching transaction"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-14T23:59:38.242006",
+        "step_type": "Thought",
+        "description": "Starting agent reasoning for query",
+        "observation": "lastweek i ordered a mixer grinder and its not working now...I want refund"
+      },
+      {
+        "timestamp": "2025-07-14T23:59:38.242009",
+        "step_type": "Thought",
+        "description": "Classifying user intent",
+        "observation": "lastweek i ordered a mixer grinder and its not working now...I want refund"
+      },
+      {
+        "timestamp": "2025-07-14T23:59:38.242010",
+        "step_type": "Observation",
+        "description": "Intent classified",
+        "observation": {
+          "intent": "refund"
+        }
+      },
+      {
+        "timestamp": "2025-07-14T23:59:38.242012",
+        "step_type": "Thought",
+        "description": "Looking up transaction based on query",
+        "observation": "lastweek i ordered a mixer grinder and its not working now...I want refund"
+      },
+      {
+        "timestamp": "2025-07-14T23:59:38.242389",
+        "step_type": "Observation",
+        "description": "Transaction lookup result",
+        "observation": {
+          "error": "No transaction found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-14T23:59:38.242392"
+  },
+  {
+    "run_id": "87edb5b4-88fe-4883-a4df-4775e12b90b8",
+    "query": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke",
+    "trace": {
+      "error": "No matching transaction"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-15T00:04:10.385998",
+        "step_type": "Thought",
+        "description": "Starting agent reasoning for query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:04:10.386008",
+        "step_type": "Thought",
+        "description": "Classifying user intent",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:04:10.386015",
+        "step_type": "Observation",
+        "description": "Intent classified",
+        "observation": {
+          "intent": "refund"
+        }
+      },
+      {
+        "timestamp": "2025-07-15T00:04:10.386018",
+        "step_type": "Thought",
+        "description": "Looking up transaction based on query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:04:10.386991",
+        "step_type": "Observation",
+        "description": "Transaction lookup result",
+        "observation": {
+          "error": "No transaction found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-15T00:04:10.387001"
+  },
+  {
+    "run_id": "fabe1ed5-867d-4632-85fe-9afc3f0566b6",
+    "query": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke",
+    "trace": {
+      "error": "No matching transaction"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-15T00:15:08.934394",
+        "step_type": "Thought",
+        "description": "Starting agent reasoning for query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:08.934407",
+        "step_type": "Thought",
+        "description": "Classifying user intent",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:08.934415",
+        "step_type": "Observation",
+        "description": "Intent classified",
+        "observation": {
+          "intent": "refund"
+        }
+      },
+      {
+        "timestamp": "2025-07-15T00:15:08.934419",
+        "step_type": "Thought",
+        "description": "Looking up transaction based on query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:08.936138",
+        "step_type": "Observation",
+        "description": "Transaction lookup result",
+        "observation": {
+          "error": "No transaction found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-15T00:15:08.936152"
+  },
+  {
+    "run_id": "bb82e1f1-5524-46af-8110-7426dd56432b",
+    "query": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke",
+    "trace": {
+      "error": "No matching transaction"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-15T00:15:11.071174",
+        "step_type": "Thought",
+        "description": "Starting agent reasoning for query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:11.071189",
+        "step_type": "Thought",
+        "description": "Classifying user intent",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:11.071199",
+        "step_type": "Observation",
+        "description": "Intent classified",
+        "observation": {
+          "intent": "refund"
+        }
+      },
+      {
+        "timestamp": "2025-07-15T00:15:11.071202",
+        "step_type": "Thought",
+        "description": "Looking up transaction based on query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:15:11.071882",
+        "step_type": "Observation",
+        "description": "Transaction lookup result",
+        "observation": {
+          "error": "No transaction found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-15T00:15:11.071895"
+  },
+  {
+    "run_id": "71f4177a-65d0-4383-9461-6cebede6edb4",
+    "query": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke",
+    "trace": {
+      "error": "No matching transaction"
+    },
+    "steps": [
+      {
+        "timestamp": "2025-07-15T00:17:09.899347",
+        "step_type": "Thought",
+        "description": "Starting agent reasoning for query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:17:09.899358",
+        "step_type": "Thought",
+        "description": "Classifying user intent",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:17:09.899364",
+        "step_type": "Observation",
+        "description": "Intent classified",
+        "observation": {
+          "intent": "refund"
+        }
+      },
+      {
+        "timestamp": "2025-07-15T00:17:09.899367",
+        "step_type": "Thought",
+        "description": "Looking up transaction based on query",
+        "observation": "I want a refund for last week\u2019s order. I bought a mixer grinder and it broke"
+      },
+      {
+        "timestamp": "2025-07-15T00:17:09.899965",
+        "step_type": "Observation",
+        "description": "Transaction lookup result",
+        "observation": {
+          "error": "No transaction found"
+        }
+      }
+    ],
+    "timestamp": "2025-07-15T00:17:09.899975"
+  },
+  {
+    "run_id": "8a162452-82a2-40d4-be5e-b5d9fc130cbd",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "94b6c0f3-7748-4cac-ab9a-aafac3b292fb",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "bda23f96-bb50-44e2-9eb8-0935e44ba350",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "8c9e644c-8209-4ae5-9bb8-fcdc6285eb17",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "0f20dd95-3ebf-419c-9016-d7068eb44d73",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "ed83128f-0c71-428c-b4d2-dc3c1d60b572",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "0acce905-9279-43e9-a367-9956df0e2cf9",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "528f6156-347e-4b70-a1f2-cc2fef484186",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "b5792f15-edff-4425-afd6-0aea224cfa03",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "001da8a5-eecb-426c-b54c-4e02a7a1aa48",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "f1dd1d92-c7c2-430b-8c47-05ffb347265f",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  },
+  {
+    "run_id": "91ca7a98-9d7b-467a-a94b-59d0c38b89ba",
+    "query": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly",
+    "steps": [
+      {
+        "step": "Thought",
+        "desc": "Starting reasoning",
+        "obs": "I brought a mouse last week. This is not working and dome parts are missing. I want a refund. strictly"
+      }
+    ]
+  }
+]

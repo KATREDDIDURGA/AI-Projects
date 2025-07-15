@@ -1,0 +1,602 @@
+transaction_id,user_query,item,amount,prior_fraud_flag
+T0001,I want a refund for last week’s order,Webcam,183.22,No
+T0002,Order was missing,Noise Cancelling Headphones,59.18,No
+T0003,Wrong product received,Smartwatch Strap,34.76,Yes
+T0004,Wrong product received,Gaming Mouse,150.86,Yes
+T0005,Order was missing,USB-C Charger,90.92,Yes
+T0006,I didn’t receive my order,Bluetooth Speaker,242.49,No
+T0007,Order was missing,Smartphone Cover,25.31,Yes
+T0008,"No delivery, please refund",Portable SSD,51.97,No
+T0009,Item is damaged,Laptop Stand,179.54,Yes
+T0010,"No delivery, please refund",Laptop Stand,152.31,No
+T0011,I want a refund for last week’s order,Smartwatch Strap,171.94,Yes
+T0012,I didn’t receive my order,Bluetooth Speaker,205.98,No
+T0013,Wrong product received,Wireless Earbuds,201.66,Yes
+T0014,Never got tracking update,Gaming Mouse,112.04,No
+T0015,Never got tracking update,Gaming Mouse,266.35,No
+T0016,Item is damaged,Portable SSD,214.79,No
+T0017,Package lost in transit,Webcam,134.35,No
+T0018,Order was missing,Gaming Mouse,187.19,No
+T0019,Item is damaged,Smartphone Cover,276.84,Yes
+T0020,I didn’t receive my order,Gaming Mouse,251.7,Yes
+T0021,Wrong product received,Laptop Stand,272.22,No
+T0022,Need a refund urgently,Gaming Mouse,265.37,Yes
+T0023,Item is damaged,Smartwatch Strap,165.62,No
+T0024,I want a refund for last week’s order,Noise Cancelling Headphones,61.91,No
+T0025,Item is damaged,Bluetooth Speaker,119.45,No
+T0026,Need a refund urgently,Noise Cancelling Headphones,264.68,Yes
+T0027,I didn’t receive my order,Noise Cancelling Headphones,223.67,Yes
+T0028,"No delivery, please refund",Gaming Mouse,69.92,Yes
+T0029,I didn’t receive my order,Portable SSD,184.12,Yes
+T0030,Package lost in transit,Laptop Stand,26.59,Yes
+T0031,Never got tracking update,Smartphone Cover,126.65,No
+T0032,Delivered but empty box,Noise Cancelling Headphones,220.36,No
+T0033,Need a refund urgently,Smartphone Cover,64.35,No
+T0034,Item is damaged,Laptop Stand,139.99,Yes
+T0035,I want a refund for last week’s order,Smartwatch Strap,262.07,No
+T0036,Order was missing,Bluetooth Speaker,29.23,Yes
+T0037,I didn’t receive my order,Webcam,66.87,Yes
+T0038,I didn’t receive my order,Portable SSD,149.34,No
+T0039,Package lost in transit,Webcam,182.25,No
+T0040,I didn’t receive my order,Webcam,58.54,Yes
+T0041,Need a refund urgently,Webcam,295.53,Yes
+T0042,Never got tracking update,Bluetooth Speaker,297.19,No
+T0043,Delivered but empty box,Webcam,165.68,Yes
+T0044,Delivered but empty box,Smartwatch Strap,239.48,Yes
+T0045,Package lost in transit,Smartphone Cover,261.8,Yes
+T0046,Need a refund urgently,USB-C Charger,132.36,No
+T0047,I want a refund for last week’s order,Smartphone Cover,199.24,Yes
+T0048,Package lost in transit,Noise Cancelling Headphones,283.18,No
+T0049,Item is damaged,Portable SSD,185.41,Yes
+T0050,Package lost in transit,Wireless Earbuds,25.55,Yes
+T0051,Item is damaged,Smartwatch Strap,44.93,Yes
+T0052,Package lost in transit,USB-C Charger,98.42,Yes
+T0053,Need a refund urgently,Laptop Stand,141.67,No
+T0054,Order was missing,USB-C Charger,161.18,Yes
+T0055,Never got tracking update,Bluetooth Speaker,104.47,No
+T0056,Package lost in transit,Portable SSD,183.27,Yes
+T0057,"No delivery, please refund",Bluetooth Speaker,197.63,Yes
+T0058,I want a refund for last week’s order,Noise Cancelling Headphones,200.43,Yes
+T0059,Delivered but empty box,Bluetooth Speaker,83.21,Yes
+T0060,I want a refund for last week’s order,Bluetooth Speaker,72.17,Yes
+T0061,Wrong product received,Portable SSD,258.16,Yes
+T0062,"No delivery, please refund",Webcam,180.09,No
+T0063,I didn’t receive my order,Portable SSD,90.07,No
+T0064,Order was missing,Gaming Mouse,240.83,No
+T0065,Delivered but empty box,Smartwatch Strap,232.38,Yes
+T0066,"No delivery, please refund",Gaming Mouse,291.44,Yes
+T0067,I want a refund for last week’s order,USB-C Charger,62.29,No
+T0068,Package lost in transit,Smartphone Cover,273.77,Yes
+T0069,Package lost in transit,Noise Cancelling Headphones,235.53,No
+T0070,Never got tracking update,Noise Cancelling Headphones,294.14,No
+T0071,Package lost in transit,Bluetooth Speaker,211.24,No
+T0072,Package lost in transit,Laptop Stand,56.51,Yes
+T0073,Order was missing,Gaming Mouse,51.9,Yes
+T0074,I didn’t receive my order,Noise Cancelling Headphones,185.78,No
+T0075,Never got tracking update,Noise Cancelling Headphones,190.32,No
+T0076,Need a refund urgently,Webcam,205.57,Yes
+T0077,Wrong product received,USB-C Charger,201.18,No
+T0078,"No delivery, please refund",Webcam,119.39,Yes
+T0079,Order was missing,USB-C Charger,167.33,No
+T0080,Item is damaged,Bluetooth Speaker,160.64,Yes
+T0081,Never got tracking update,Smartphone Cover,166.79,Yes
+T0082,Item is damaged,Smartphone Cover,218.0,Yes
+T0083,"No delivery, please refund",USB-C Charger,284.18,Yes
+T0084,Need a refund urgently,Gaming Mouse,107.65,Yes
+T0085,Order was missing,Laptop Stand,56.91,No
+T0086,Need a refund urgently,Smartwatch Strap,54.29,No
+T0087,Need a refund urgently,Portable SSD,79.13,No
+T0088,Order was missing,Smartwatch Strap,70.37,No
+T0089,Need a refund urgently,Smartwatch Strap,64.43,No
+T0090,Item is damaged,Laptop Stand,212.03,Yes
+T0091,Never got tracking update,Portable SSD,51.8,Yes
+T0092,Need a refund urgently,Bluetooth Speaker,197.8,Yes
+T0093,Need a refund urgently,Gaming Mouse,106.18,No
+T0094,Wrong product received,Gaming Mouse,30.24,No
+T0095,I want a refund for last week’s order,Bluetooth Speaker,192.13,No
+T0096,Item is damaged,Webcam,111.14,Yes
+T0097,Order was missing,Laptop Stand,111.92,Yes
+T0098,Never got tracking update,USB-C Charger,63.98,Yes
+T0099,Package lost in transit,Smartwatch Strap,131.06,Yes
+T0100,Item is damaged,Wireless Earbuds,146.8,No
+T0101,Need a refund urgently,Noise Cancelling Headphones,285.39,Yes
+T0102,Item is damaged,Smartwatch Strap,54.26,No
+T0103,Wrong product received,Noise Cancelling Headphones,33.01,Yes
+T0104,Need a refund urgently,Bluetooth Speaker,271.58,Yes
+T0105,Delivered but empty box,Smartphone Cover,247.18,No
+T0106,Order was missing,USB-C Charger,215.27,Yes
+T0107,"No delivery, please refund",Wireless Earbuds,99.15,No
+T0108,Order was missing,Webcam,216.62,No
+T0109,Delivered but empty box,USB-C Charger,280.05,No
+T0110,Item is damaged,Laptop Stand,34.4,No
+T0111,I didn’t receive my order,Webcam,201.39,Yes
+T0112,"No delivery, please refund",Smartwatch Strap,224.66,Yes
+T0113,Delivered but empty box,Webcam,247.13,No
+T0114,Wrong product received,Laptop Stand,274.3,No
+T0115,I want a refund for last week’s order,Smartphone Cover,88.25,No
+T0116,I didn’t receive my order,Portable SSD,263.49,No
+T0117,Package lost in transit,Bluetooth Speaker,99.95,Yes
+T0118,Delivered but empty box,Smartwatch Strap,62.19,Yes
+T0119,Delivered but empty box,USB-C Charger,175.15,No
+T0120,I didn’t receive my order,Noise Cancelling Headphones,123.17,Yes
+T0121,Package lost in transit,Noise Cancelling Headphones,113.49,No
+T0122,Need a refund urgently,Gaming Mouse,281.4,No
+T0123,Need a refund urgently,Smartwatch Strap,114.45,No
+T0124,Order was missing,Noise Cancelling Headphones,72.43,No
+T0125,Order was missing,Smartwatch Strap,244.1,Yes
+T0126,I didn’t receive my order,Noise Cancelling Headphones,84.67,No
+T0127,Wrong product received,Portable SSD,102.37,No
+T0128,Wrong product received,Bluetooth Speaker,269.08,No
+T0129,Package lost in transit,Wireless Earbuds,134.65,No
+T0130,Delivered but empty box,Laptop Stand,137.04,Yes
+T0131,Delivered but empty box,USB-C Charger,281.2,No
+T0132,"No delivery, please refund",Bluetooth Speaker,58.54,Yes
+T0133,"No delivery, please refund",Webcam,197.14,No
+T0134,Package lost in transit,Wireless Earbuds,288.16,No
+T0135,Package lost in transit,Noise Cancelling Headphones,211.52,No
+T0136,Item is damaged,Bluetooth Speaker,278.23,Yes
+T0137,Package lost in transit,Webcam,191.63,Yes
+T0138,Need a refund urgently,USB-C Charger,180.08,Yes
+T0139,Item is damaged,Laptop Stand,40.64,No
+T0140,Package lost in transit,Noise Cancelling Headphones,67.36,Yes
+T0141,Item is damaged,Smartwatch Strap,22.19,No
+T0142,Order was missing,Wireless Earbuds,126.57,Yes
+T0143,I want a refund for last week’s order,Laptop Stand,21.68,No
+T0144,Order was missing,Smartwatch Strap,149.91,No
+T0145,Wrong product received,Smartphone Cover,229.08,Yes
+T0146,I didn’t receive my order,Smartwatch Strap,225.6,Yes
+T0147,Need a refund urgently,Gaming Mouse,156.98,Yes
+T0148,Need a refund urgently,USB-C Charger,86.21,Yes
+T0149,Delivered but empty box,Smartwatch Strap,187.6,No
+T0150,I want a refund for last week’s order,USB-C Charger,182.55,No
+T0151,Delivered but empty box,Portable SSD,188.43,Yes
+T0152,"No delivery, please refund",USB-C Charger,103.28,No
+T0153,Order was missing,Portable SSD,75.52,Yes
+T0154,Need a refund urgently,Portable SSD,170.04,Yes
+T0155,Wrong product received,Smartwatch Strap,73.24,Yes
+T0156,Need a refund urgently,Webcam,218.09,No
+T0157,Never got tracking update,Bluetooth Speaker,229.18,Yes
+T0158,Delivered but empty box,Noise Cancelling Headphones,204.86,No
+T0159,"No delivery, please refund",Bluetooth Speaker,85.83,Yes
+T0160,Wrong product received,Smartphone Cover,22.86,Yes
+T0161,Package lost in transit,Noise Cancelling Headphones,222.62,No
+T0162,Delivered but empty box,USB-C Charger,108.22,Yes
+T0163,I want a refund for last week’s order,Laptop Stand,112.37,Yes
+T0164,Never got tracking update,Bluetooth Speaker,141.44,Yes
+T0165,I want a refund for last week’s order,USB-C Charger,272.64,No
+T0166,Wrong product received,Noise Cancelling Headphones,131.98,Yes
+T0167,Item is damaged,Bluetooth Speaker,172.44,Yes
+T0168,Wrong product received,Webcam,179.38,No
+T0169,Never got tracking update,Webcam,139.85,No
+T0170,I want a refund for last week’s order,Wireless Earbuds,126.08,No
+T0171,Need a refund urgently,Smartwatch Strap,298.15,Yes
+T0172,I want a refund for last week’s order,Portable SSD,51.14,Yes
+T0173,"No delivery, please refund",USB-C Charger,219.14,No
+T0174,Need a refund urgently,Webcam,200.74,No
+T0175,I didn’t receive my order,Webcam,257.12,No
+T0176,Order was missing,Noise Cancelling Headphones,35.99,No
+T0177,"No delivery, please refund",Smartwatch Strap,83.52,No
+T0178,Item is damaged,USB-C Charger,100.36,Yes
+T0179,Package lost in transit,Laptop Stand,159.02,Yes
+T0180,Wrong product received,Webcam,282.62,Yes
+T0181,Item is damaged,USB-C Charger,215.41,No
+T0182,Delivered but empty box,Webcam,275.84,Yes
+T0183,Item is damaged,Gaming Mouse,37.31,Yes
+T0184,I didn’t receive my order,Noise Cancelling Headphones,60.41,No
+T0185,Package lost in transit,Wireless Earbuds,256.54,Yes
+T0186,Order was missing,Gaming Mouse,246.31,No
+T0187,I didn’t receive my order,Noise Cancelling Headphones,294.65,No
+T0188,I want a refund for last week’s order,Portable SSD,198.32,No
+T0189,"No delivery, please refund",Gaming Mouse,59.94,Yes
+T0190,"No delivery, please refund",Smartphone Cover,40.31,Yes
+T0191,Wrong product received,Portable SSD,79.84,No
+T0192,Package lost in transit,Laptop Stand,36.13,Yes
+T0193,Package lost in transit,Laptop Stand,60.31,Yes
+T0194,I want a refund for last week’s order,Portable SSD,195.33,No
+T0195,I want a refund for last week’s order,Noise Cancelling Headphones,23.14,Yes
+T0196,I want a refund for last week’s order,Smartphone Cover,136.86,Yes
+T0197,Wrong product received,Webcam,74.94,Yes
+T0198,Wrong product received,Gaming Mouse,111.81,No
+T0199,Order was missing,Webcam,214.08,Yes
+T0200,Never got tracking update,Smartwatch Strap,144.18,Yes
+T0201,I want a refund for last week’s order,Laptop Stand,95.5,Yes
+T0202,"No delivery, please refund",Wireless Earbuds,127.88,Yes
+T0203,Package lost in transit,USB-C Charger,179.63,Yes
+T0204,Need a refund urgently,Webcam,245.38,Yes
+T0205,Never got tracking update,Smartphone Cover,107.69,Yes
+T0206,Wrong product received,Gaming Mouse,269.17,Yes
+T0207,Item is damaged,Webcam,267.47,No
+T0208,Wrong product received,Smartwatch Strap,200.22,No
+T0209,I want a refund for last week’s order,Laptop Stand,64.56,Yes
+T0210,Need a refund urgently,Noise Cancelling Headphones,121.22,Yes
+T0211,"No delivery, please refund",Webcam,224.2,No
+T0212,Package lost in transit,Smartwatch Strap,243.22,Yes
+T0213,I want a refund for last week’s order,Portable SSD,83.21,Yes
+T0214,Order was missing,Laptop Stand,102.6,Yes
+T0215,I didn’t receive my order,Portable SSD,94.32,No
+T0216,"No delivery, please refund",Noise Cancelling Headphones,258.24,No
+T0217,Wrong product received,Gaming Mouse,183.51,No
+T0218,Need a refund urgently,Gaming Mouse,216.33,No
+T0219,I want a refund for last week’s order,Gaming Mouse,247.61,No
+T0220,Item is damaged,Webcam,160.61,Yes
+T0221,Never got tracking update,Noise Cancelling Headphones,58.55,Yes
+T0222,Need a refund urgently,Wireless Earbuds,154.08,Yes
+T0223,Need a refund urgently,Gaming Mouse,127.61,Yes
+T0224,Never got tracking update,Smartwatch Strap,107.01,No
+T0225,I didn’t receive my order,Smartphone Cover,140.27,No
+T0226,Delivered but empty box,Laptop Stand,226.53,No
+T0227,Never got tracking update,Wireless Earbuds,286.64,Yes
+T0228,Order was missing,Laptop Stand,261.96,Yes
+T0229,Delivered but empty box,Wireless Earbuds,30.07,Yes
+T0230,I want a refund for last week’s order,USB-C Charger,276.07,Yes
+T0231,Wrong product received,Noise Cancelling Headphones,137.59,Yes
+T0232,Order was missing,Smartphone Cover,288.72,No
+T0233,Package lost in transit,Noise Cancelling Headphones,291.69,Yes
+T0234,Package lost in transit,Bluetooth Speaker,209.31,Yes
+T0235,Package lost in transit,Noise Cancelling Headphones,69.46,No
+T0236,Package lost in transit,Smartwatch Strap,27.63,No
+T0237,Never got tracking update,Laptop Stand,95.12,No
+T0238,I want a refund for last week’s order,Laptop Stand,169.41,No
+T0239,Never got tracking update,USB-C Charger,273.57,Yes
+T0240,Need a refund urgently,Wireless Earbuds,177.58,Yes
+T0241,Need a refund urgently,Bluetooth Speaker,53.18,No
+T0242,"No delivery, please refund",Bluetooth Speaker,114.54,Yes
+T0243,Wrong product received,Wireless Earbuds,214.51,Yes
+T0244,Wrong product received,Bluetooth Speaker,169.39,Yes
+T0245,Order was missing,USB-C Charger,259.17,Yes
+T0246,I want a refund for last week’s order,Smartwatch Strap,88.68,Yes
+T0247,Order was missing,USB-C Charger,71.58,No
+T0248,Never got tracking update,Bluetooth Speaker,241.83,Yes
+T0249,Wrong product received,Wireless Earbuds,79.17,Yes
+T0250,Need a refund urgently,Smartphone Cover,90.13,Yes
+T0251,I didn’t receive my order,Wireless Earbuds,240.16,Yes
+T0252,Need a refund urgently,Webcam,249.7,No
+T0253,Wrong product received,Bluetooth Speaker,263.27,Yes
+T0254,Never got tracking update,Bluetooth Speaker,247.41,No
+T0255,Delivered but empty box,Wireless Earbuds,146.26,No
+T0256,Wrong product received,Smartphone Cover,116.35,No
+T0257,I didn’t receive my order,Webcam,54.8,No
+T0258,Never got tracking update,Smartphone Cover,217.29,Yes
+T0259,Need a refund urgently,Noise Cancelling Headphones,106.93,No
+T0260,Package lost in transit,Bluetooth Speaker,143.47,No
+T0261,I didn’t receive my order,Portable SSD,65.54,Yes
+T0262,Wrong product received,Noise Cancelling Headphones,104.18,Yes
+T0263,I want a refund for last week’s order,Portable SSD,270.16,No
+T0264,Wrong product received,Laptop Stand,257.88,Yes
+T0265,I didn’t receive my order,Laptop Stand,105.38,Yes
+T0266,Item is damaged,Smartwatch Strap,165.91,No
+T0267,I want a refund for last week’s order,Portable SSD,250.47,Yes
+T0268,I didn’t receive my order,Bluetooth Speaker,28.84,Yes
+T0269,Never got tracking update,Noise Cancelling Headphones,72.45,No
+T0270,I didn’t receive my order,Wireless Earbuds,151.14,No
+T0271,Delivered but empty box,Webcam,175.75,Yes
+T0272,Wrong product received,Noise Cancelling Headphones,168.93,Yes
+T0273,Delivered but empty box,Webcam,87.52,No
+T0274,I want a refund for last week’s order,Laptop Stand,218.83,No
+T0275,Item is damaged,Bluetooth Speaker,172.79,Yes
+T0276,"No delivery, please refund",Portable SSD,266.91,No
+T0277,Package lost in transit,Smartwatch Strap,242.48,No
+T0278,Need a refund urgently,Wireless Earbuds,40.53,No
+T0279,"No delivery, please refund",USB-C Charger,195.67,Yes
+T0280,Order was missing,Smartphone Cover,108.15,No
+T0281,Delivered but empty box,Smartwatch Strap,191.65,Yes
+T0282,Order was missing,Wireless Earbuds,278.92,Yes
+T0283,Need a refund urgently,Wireless Earbuds,290.47,No
+T0284,Item is damaged,Wireless Earbuds,91.23,Yes
+T0285,Delivered but empty box,USB-C Charger,280.52,Yes
+T0286,"No delivery, please refund",Smartphone Cover,162.84,Yes
+T0287,"No delivery, please refund",USB-C Charger,91.76,No
+T0288,Wrong product received,Gaming Mouse,278.95,Yes
+T0289,I want a refund for last week’s order,Wireless Earbuds,44.48,Yes
+T0290,Need a refund urgently,Laptop Stand,92.92,No
+T0291,I didn’t receive my order,Gaming Mouse,231.97,Yes
+T0292,"No delivery, please refund",Smartwatch Strap,259.27,No
+T0293,Package lost in transit,Smartwatch Strap,237.76,Yes
+T0294,Order was missing,Portable SSD,192.07,No
+T0295,"No delivery, please refund",Smartwatch Strap,40.75,No
+T0296,Package lost in transit,Wireless Earbuds,76.1,No
+T0297,Never got tracking update,Portable SSD,58.11,Yes
+T0298,I want a refund for last week’s order,Portable SSD,227.98,No
+T0299,"No delivery, please refund",Wireless Earbuds,265.03,Yes
+T0300,I want a refund for last week’s order,Wireless Earbuds,195.17,No
+T0301,Package lost in transit,Bluetooth Speaker,243.26,Yes
+T0302,Package lost in transit,Portable SSD,112.07,No
+T0303,Wrong product received,USB-C Charger,215.17,No
+T0304,Item is damaged,Wireless Earbuds,243.67,Yes
+T0305,"No delivery, please refund",USB-C Charger,84.62,No
+T0306,Need a refund urgently,Noise Cancelling Headphones,80.77,No
+T0307,Delivered but empty box,Portable SSD,41.43,No
+T0308,Item is damaged,Bluetooth Speaker,231.61,No
+T0309,I want a refund for last week’s order,Wireless Earbuds,40.26,No
+T0310,Item is damaged,USB-C Charger,188.62,No
+T0311,Package lost in transit,Portable SSD,149.89,No
+T0312,Need a refund urgently,Bluetooth Speaker,125.7,No
+T0313,I didn’t receive my order,Portable SSD,71.3,No
+T0314,I didn’t receive my order,USB-C Charger,79.84,No
+T0315,I want a refund for last week’s order,Laptop Stand,238.37,Yes
+T0316,I want a refund for last week’s order,Smartwatch Strap,180.52,No
+T0317,Need a refund urgently,Noise Cancelling Headphones,174.99,No
+T0318,Delivered but empty box,Gaming Mouse,208.91,No
+T0319,Package lost in transit,Webcam,186.81,No
+T0320,Need a refund urgently,Smartwatch Strap,230.42,No
+T0321,Need a refund urgently,Portable SSD,292.27,Yes
+T0322,Wrong product received,Gaming Mouse,298.28,No
+T0323,Never got tracking update,Smartwatch Strap,181.73,Yes
+T0324,I didn’t receive my order,Smartwatch Strap,289.63,No
+T0325,Delivered but empty box,Laptop Stand,49.06,No
+T0326,Item is damaged,Smartwatch Strap,87.08,Yes
+T0327,I didn’t receive my order,Webcam,131.64,No
+T0328,I want a refund for last week’s order,USB-C Charger,194.21,No
+T0329,Never got tracking update,Webcam,167.75,No
+T0330,I want a refund for last week’s order,Webcam,286.41,Yes
+T0331,Never got tracking update,Webcam,165.11,Yes
+T0332,Need a refund urgently,Laptop Stand,159.68,Yes
+T0333,"No delivery, please refund",Webcam,264.75,No
+T0334,"No delivery, please refund",Smartwatch Strap,221.58,Yes
+T0335,"No delivery, please refund",Laptop Stand,127.04,Yes
+T0336,"No delivery, please refund",Laptop Stand,280.3,Yes
+T0337,Delivered but empty box,Bluetooth Speaker,171.9,No
+T0338,I didn’t receive my order,Webcam,163.01,No
+T0339,Never got tracking update,Noise Cancelling Headphones,92.64,Yes
+T0340,Delivered but empty box,Smartphone Cover,112.7,No
+T0341,Item is damaged,USB-C Charger,216.57,Yes
+T0342,Package lost in transit,USB-C Charger,245.87,No
+T0343,I want a refund for last week’s order,Smartphone Cover,65.37,No
+T0344,"No delivery, please refund",Wireless Earbuds,73.82,Yes
+T0345,Item is damaged,Portable SSD,33.43,No
+T0346,Order was missing,Wireless Earbuds,46.37,Yes
+T0347,I want a refund for last week’s order,USB-C Charger,94.28,Yes
+T0348,Wrong product received,Laptop Stand,270.5,Yes
+T0349,Need a refund urgently,Noise Cancelling Headphones,247.44,Yes
+T0350,I want a refund for last week’s order,Webcam,168.29,Yes
+T0351,"No delivery, please refund",Bluetooth Speaker,264.73,Yes
+T0352,Wrong product received,Webcam,257.33,Yes
+T0353,"No delivery, please refund",Gaming Mouse,114.54,No
+T0354,Item is damaged,Noise Cancelling Headphones,184.42,No
+T0355,Order was missing,Wireless Earbuds,154.19,No
+T0356,Wrong product received,USB-C Charger,123.84,No
+T0357,Wrong product received,Wireless Earbuds,202.62,Yes
+T0358,Delivered but empty box,Bluetooth Speaker,114.99,No
+T0359,"No delivery, please refund",Smartwatch Strap,162.02,No
+T0360,"No delivery, please refund",Laptop Stand,127.63,No
+T0361,"No delivery, please refund",USB-C Charger,184.74,No
+T0362,Order was missing,Gaming Mouse,75.02,Yes
+T0363,Order was missing,Webcam,251.5,Yes
+T0364,I didn’t receive my order,Noise Cancelling Headphones,219.97,Yes
+T0365,Never got tracking update,Portable SSD,89.02,Yes
+T0366,Package lost in transit,Webcam,123.97,No
+T0367,Delivered but empty box,Portable SSD,121.97,No
+T0368,Item is damaged,Smartwatch Strap,225.58,No
+T0369,"No delivery, please refund",Noise Cancelling Headphones,168.15,No
+T0370,Need a refund urgently,Laptop Stand,27.52,No
+T0371,I didn’t receive my order,Smartphone Cover,42.57,No
+T0372,Item is damaged,Webcam,126.28,Yes
+T0373,Wrong product received,Smartwatch Strap,98.5,No
+T0374,Never got tracking update,Webcam,105.39,Yes
+T0375,Item is damaged,USB-C Charger,73.23,No
+T0376,Never got tracking update,Webcam,172.52,No
+T0377,Never got tracking update,Smartwatch Strap,61.6,Yes
+T0378,Wrong product received,USB-C Charger,223.86,Yes
+T0379,Order was missing,Portable SSD,203.77,No
+T0380,I didn’t receive my order,USB-C Charger,106.49,Yes
+T0381,"No delivery, please refund",Gaming Mouse,230.03,No
+T0382,Delivered but empty box,Noise Cancelling Headphones,149.7,Yes
+T0383,Never got tracking update,Noise Cancelling Headphones,213.48,No
+T0384,Delivered but empty box,Smartwatch Strap,154.72,No
+T0385,Delivered but empty box,Portable SSD,40.0,Yes
+T0386,I want a refund for last week’s order,Wireless Earbuds,243.34,Yes
+T0387,Wrong product received,Webcam,52.18,Yes
+T0388,Item is damaged,Laptop Stand,262.15,No
+T0389,Package lost in transit,Portable SSD,241.36,No
+T0390,Delivered but empty box,Noise Cancelling Headphones,143.81,No
+T0391,Never got tracking update,Webcam,226.35,No
+T0392,Package lost in transit,USB-C Charger,101.11,Yes
+T0393,Package lost in transit,Webcam,296.39,No
+T0394,Package lost in transit,Laptop Stand,113.87,Yes
+T0395,Need a refund urgently,USB-C Charger,198.26,No
+T0396,Order was missing,Smartphone Cover,266.09,No
+T0397,Delivered but empty box,Bluetooth Speaker,234.38,Yes
+T0398,Package lost in transit,Wireless Earbuds,186.26,Yes
+T0399,Need a refund urgently,Bluetooth Speaker,121.98,Yes
+T0400,Order was missing,Laptop Stand,182.8,Yes
+T0401,"No delivery, please refund",Webcam,103.5,No
+T0402,Wrong product received,Gaming Mouse,141.28,No
+T0403,"No delivery, please refund",Webcam,199.13,Yes
+T0404,Need a refund urgently,Webcam,97.09,No
+T0405,Delivered but empty box,USB-C Charger,173.53,No
+T0406,I want a refund for last week’s order,Noise Cancelling Headphones,248.89,No
+T0407,Wrong product received,Noise Cancelling Headphones,37.47,Yes
+T0408,I didn’t receive my order,Wireless Earbuds,175.2,Yes
+T0409,Need a refund urgently,Bluetooth Speaker,264.16,Yes
+T0410,Order was missing,Smartwatch Strap,231.21,No
+T0411,Never got tracking update,USB-C Charger,288.41,Yes
+T0412,Delivered but empty box,Webcam,225.33,No
+T0413,Never got tracking update,Smartwatch Strap,89.7,No
+T0414,I didn’t receive my order,Portable SSD,209.12,Yes
+T0415,Delivered but empty box,Webcam,126.74,Yes
+T0416,"No delivery, please refund",Smartwatch Strap,218.81,Yes
+T0417,Order was missing,Noise Cancelling Headphones,242.44,No
+T0418,Order was missing,Webcam,282.64,Yes
+T0419,I didn’t receive my order,USB-C Charger,214.96,No
+T0420,Item is damaged,Webcam,159.59,Yes
+T0421,I want a refund for last week’s order,Gaming Mouse,130.01,Yes
+T0422,Never got tracking update,Bluetooth Speaker,197.1,No
+T0423,I didn’t receive my order,Smartphone Cover,148.23,Yes
+T0424,"No delivery, please refund",Smartwatch Strap,35.78,Yes
+T0425,Order was missing,Smartphone Cover,146.97,No
+T0426,"No delivery, please refund",Smartphone Cover,166.58,No
+T0427,Delivered but empty box,Smartphone Cover,45.89,Yes
+T0428,I want a refund for last week’s order,USB-C Charger,101.54,Yes
+T0429,Need a refund urgently,Webcam,200.45,No
+T0430,Package lost in transit,Laptop Stand,72.96,Yes
+T0431,I want a refund for last week’s order,Portable SSD,110.88,No
+T0432,Item is damaged,Portable SSD,60.69,No
+T0433,Wrong product received,Smartphone Cover,129.7,No
+T0434,Need a refund urgently,Gaming Mouse,243.04,No
+T0435,Item is damaged,Bluetooth Speaker,249.31,Yes
+T0436,Item is damaged,Bluetooth Speaker,142.9,Yes
+T0437,Wrong product received,Smartwatch Strap,107.79,Yes
+T0438,Package lost in transit,Smartwatch Strap,189.15,No
+T0439,I want a refund for last week’s order,Laptop Stand,281.92,Yes
+T0440,Never got tracking update,Bluetooth Speaker,282.04,Yes
+T0441,Package lost in transit,Wireless Earbuds,228.03,Yes
+T0442,I didn’t receive my order,Wireless Earbuds,151.11,Yes
+T0443,"No delivery, please refund",Webcam,33.89,Yes
+T0444,Never got tracking update,Bluetooth Speaker,144.64,No
+T0445,Never got tracking update,Bluetooth Speaker,23.14,No
+T0446,I didn’t receive my order,Laptop Stand,122.14,No
+T0447,Wrong product received,Bluetooth Speaker,221.47,No
+T0448,Never got tracking update,USB-C Charger,239.5,No
+T0449,I want a refund for last week’s order,Portable SSD,45.6,No
+T0450,I didn’t receive my order,Noise Cancelling Headphones,28.21,No
+T0451,"No delivery, please refund",Laptop Stand,95.73,Yes
+T0452,Wrong product received,Bluetooth Speaker,154.63,No
+T0453,Never got tracking update,Smartphone Cover,69.14,No
+T0454,I want a refund for last week’s order,Laptop Stand,235.49,Yes
+T0455,I want a refund for last week’s order,Portable SSD,242.54,No
+T0456,Item is damaged,Portable SSD,152.34,Yes
+T0457,Order was missing,Portable SSD,232.09,Yes
+T0458,I want a refund for last week’s order,USB-C Charger,258.87,No
+T0459,Never got tracking update,Bluetooth Speaker,248.91,No
+T0460,I didn’t receive my order,Smartwatch Strap,21.57,Yes
+T0461,"No delivery, please refund",USB-C Charger,71.48,No
+T0462,Never got tracking update,USB-C Charger,269.51,Yes
+T0463,Package lost in transit,Laptop Stand,272.95,No
+T0464,Need a refund urgently,Wireless Earbuds,288.41,Yes
+T0465,Order was missing,Noise Cancelling Headphones,157.85,Yes
+T0466,Never got tracking update,Webcam,222.22,No
+T0467,Package lost in transit,Wireless Earbuds,121.6,No
+T0468,I didn’t receive my order,Wireless Earbuds,55.71,No
+T0469,Order was missing,Gaming Mouse,119.87,Yes
+T0470,I want a refund for last week’s order,Webcam,189.58,Yes
+T0471,Never got tracking update,Portable SSD,287.64,Yes
+T0472,Package lost in transit,Smartwatch Strap,155.27,No
+T0473,Item is damaged,Gaming Mouse,273.57,Yes
+T0474,Order was missing,Gaming Mouse,202.95,Yes
+T0475,I didn’t receive my order,Gaming Mouse,191.88,Yes
+T0476,I want a refund for last week’s order,Wireless Earbuds,222.3,No
+T0477,Wrong product received,Smartphone Cover,128.47,No
+T0478,Package lost in transit,Smartphone Cover,255.01,No
+T0479,I want a refund for last week’s order,Noise Cancelling Headphones,153.65,Yes
+T0480,Order was missing,USB-C Charger,265.57,Yes
+T0481,I want a refund for last week’s order,Webcam,179.23,No
+T0482,I didn’t receive my order,Bluetooth Speaker,104.7,Yes
+T0483,Wrong product received,Smartphone Cover,261.76,Yes
+T0484,Wrong product received,Webcam,157.13,No
+T0485,Package lost in transit,Laptop Stand,108.2,No
+T0486,Item is damaged,Gaming Mouse,268.24,Yes
+T0487,Package lost in transit,Smartwatch Strap,46.71,Yes
+T0488,I didn’t receive my order,Gaming Mouse,271.92,No
+T0489,Need a refund urgently,Bluetooth Speaker,27.8,No
+T0490,I want a refund for last week’s order,Wireless Earbuds,216.86,Yes
+T0491,"No delivery, please refund",Laptop Stand,92.99,Yes
+T0492,I want a refund for last week’s order,Noise Cancelling Headphones,71.92,No
+T0493,Need a refund urgently,Webcam,41.07,Yes
+T0494,I didn’t receive my order,Portable SSD,185.61,No
+T0495,"No delivery, please refund",USB-C Charger,293.79,Yes
+T0496,Package lost in transit,USB-C Charger,79.35,No
+T0497,Item is damaged,Smartwatch Strap,255.68,No
+T0498,"No delivery, please refund",Noise Cancelling Headphones,180.15,Yes
+T0499,Delivered but empty box,Laptop Stand,63.57,Yes
+T0500,Delivered but empty box,Portable SSD,88.66,No
+T0501,Wrong product received,Noise Cancelling Headphones,26.97,No
+T0502,Package lost in transit,Laptop Stand,26.17,Yes
+T0503,Never got tracking update,Noise Cancelling Headphones,272.06,Yes
+T0504,"No delivery, please refund",Bluetooth Speaker,264.16,Yes
+T0505,"No delivery, please refund",Noise Cancelling Headphones,124.27,Yes
+T0506,I want a refund for last week’s order,Gaming Mouse,127.37,No
+T0507,Delivered but empty box,Wireless Earbuds,60.52,No
+T0508,Need a refund urgently,Smartphone Cover,250.77,Yes
+T0509,Package lost in transit,Noise Cancelling Headphones,20.5,No
+T0510,Delivered but empty box,Smartphone Cover,142.25,Yes
+T0511,"No delivery, please refund",Bluetooth Speaker,282.94,Yes
+T0512,Delivered but empty box,USB-C Charger,33.07,No
+T0513,Package lost in transit,Wireless Earbuds,90.61,No
+T0514,Wrong product received,Bluetooth Speaker,201.1,Yes
+T0515,Need a refund urgently,Gaming Mouse,114.49,Yes
+T0516,Need a refund urgently,Gaming Mouse,254.28,Yes
+T0517,Package lost in transit,Noise Cancelling Headphones,169.79,No
+T0518,Never got tracking update,Gaming Mouse,75.05,No
+T0519,Item is damaged,Smartwatch Strap,147.63,Yes
+T0520,Wrong product received,Webcam,220.55,No
+T0521,Item is damaged,USB-C Charger,167.24,Yes
+T0522,Never got tracking update,Smartphone Cover,32.34,No
+T0523,Order was missing,Wireless Earbuds,71.66,No
+T0524,Delivered but empty box,Bluetooth Speaker,258.96,Yes
+T0525,Item is damaged,Noise Cancelling Headphones,203.68,Yes
+T0526,Delivered but empty box,Bluetooth Speaker,253.71,No
+T0527,Need a refund urgently,Noise Cancelling Headphones,199.31,No
+T0528,I want a refund for last week’s order,Webcam,246.14,Yes
+T0529,Item is damaged,USB-C Charger,184.1,No
+T0530,Delivered but empty box,Gaming Mouse,227.07,Yes
+T0531,Delivered but empty box,Noise Cancelling Headphones,140.96,No
+T0532,I want a refund for last week’s order,USB-C Charger,128.57,Yes
+T0533,Never got tracking update,Noise Cancelling Headphones,92.78,No
+T0534,Order was missing,Smartphone Cover,250.8,Yes
+T0535,Need a refund urgently,Wireless Earbuds,203.68,Yes
+T0536,Order was missing,Smartwatch Strap,81.7,Yes
+T0537,"No delivery, please refund",Laptop Stand,56.04,No
+T0538,Item is damaged,Smartwatch Strap,273.76,No
+T0539,Wrong product received,Bluetooth Speaker,125.32,No
+T0540,Never got tracking update,Noise Cancelling Headphones,210.84,No
+T0541,Wrong product received,Laptop Stand,135.1,Yes
+T0542,I want a refund for last week’s order,Smartwatch Strap,30.86,No
+T0543,Item is damaged,Laptop Stand,254.25,No
+T0544,Wrong product received,Portable SSD,96.28,No
+T0545,"No delivery, please refund",Laptop Stand,284.27,No
+T0546,Need a refund urgently,USB-C Charger,88.16,No
+T0547,Never got tracking update,Smartwatch Strap,215.15,Yes
+T0548,Wrong product received,Smartwatch Strap,252.69,Yes
+T0549,Wrong product received,Gaming Mouse,105.07,No
+T0550,Need a refund urgently,Wireless Earbuds,67.08,Yes
+T0551,Wrong product received,Laptop Stand,58.97,No
+T0552,Package lost in transit,Laptop Stand,101.73,No
+T0553,Need a refund urgently,Smartwatch Strap,95.62,No
+T0554,"No delivery, please refund",Smartphone Cover,117.08,Yes
+T0555,I didn’t receive my order,Gaming Mouse,187.85,Yes
+T0556,Delivered but empty box,Portable SSD,209.42,Yes
+T0557,Item is damaged,Smartphone Cover,42.09,No
+T0558,Package lost in transit,USB-C Charger,69.22,No
+T0559,Wrong product received,Wireless Earbuds,78.45,No
+T0560,Package lost in transit,Smartphone Cover,211.82,No
+T0561,I want a refund for last week’s order,Laptop Stand,193.43,Yes
+T0562,I want a refund for last week’s order,Bluetooth Speaker,239.72,No
+T0563,Wrong product received,Smartphone Cover,22.28,Yes
+T0564,Wrong product received,Portable SSD,221.31,No
+T0565,Package lost in transit,Webcam,87.09,Yes
+T0566,Need a refund urgently,Noise Cancelling Headphones,162.3,Yes
+T0567,Never got tracking update,USB-C Charger,25.76,No
+T0568,I didn’t receive my order,Smartphone Cover,296.33,Yes
+T0569,Order was missing,Bluetooth Speaker,144.58,No
+T0570,Wrong product received,Gaming Mouse,27.41,No
+T0571,I want a refund for last week’s order,Webcam,183.43,No
+T0572,Never got tracking update,Bluetooth Speaker,40.24,Yes
+T0573,I want a refund for last week’s order,Portable SSD,72.09,Yes
+T0574,Need a refund urgently,Smartwatch Strap,217.08,No
+T0575,Never got tracking update,Wireless Earbuds,254.74,Yes
+T0576,Delivered but empty box,Laptop Stand,192.34,Yes
+T0577,Order was missing,Gaming Mouse,230.79,Yes
+T0578,Package lost in transit,Webcam,125.03,Yes
+T0579,I didn’t receive my order,Smartphone Cover,178.34,No
+T0580,Never got tracking update,Bluetooth Speaker,133.0,No
+T0581,Wrong product received,Portable SSD,223.81,Yes
+T0582,Need a refund urgently,Wireless Earbuds,143.58,Yes
+T0583,Never got tracking update,Bluetooth Speaker,177.06,Yes
+T0584,"No delivery, please refund",Gaming Mouse,170.1,Yes
+T0585,Delivered but empty box,USB-C Charger,55.3,No
+T0586,Order was missing,Noise Cancelling Headphones,262.15,Yes
+T0587,I want a refund for last week’s order,Noise Cancelling Headphones,33.61,No
+T0588,Wrong product received,USB-C Charger,214.56,No
+T0589,I want a refund for last week’s order,Gaming Mouse,120.9,No
+T0590,Order was missing,USB-C Charger,120.68,Yes
+T0591,I want a refund for last week’s order,Wireless Earbuds,255.84,Yes
+T0592,I didn’t receive my order,Smartphone Cover,73.44,Yes
+T0593,Need a refund urgently,Noise Cancelling Headphones,139.99,No
+T0594,Never got tracking update,Laptop Stand,258.9,Yes
+T0595,Package lost in transit,Gaming Mouse,186.06,No
+T0596,Wrong product received,Smartwatch Strap,257.73,No
+T0597,Delivered but empty box,USB-C Charger,216.2,Yes
+T0598,I didn’t receive my order,Webcam,146.5,No
+T0599,Never got tracking update,Laptop Stand,139.08,Yes
+T0600,Wrong product received,USB-C Charger,260.92,No
+T0601,Broken Smartwatch Strap,Smartwatch Strap,45.00,No

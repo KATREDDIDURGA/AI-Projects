@@ -1,0 +1,11 @@
+item,policy_text,refund_allowed,refund_window_days,returnless_refund
+Webcam,Refund within 30 days if unopened or defective,yes,30,no
+Gaming Mouse,Refund within 30 days if unopened or defective,yes,30,no
+Smartwatch Strap,Refund within 30 days if unopened or defective,yes,30,no
+Headphones,Refund within 30 days if unopened or defective,yes,30,no
+Battery (hazardous),Non-returnable due to safety restrictions,no,0,no
+Holiday Gift,Extended return window until January 31,yes,61,no
+Low-cost Item,Eligible for returnless refund under $10,yes,30,yes
+Groceries,Non-returnable unless damaged or spoiled,no,0,no
+Digital Goods,Non-returnable,no,0,no
+Personal Care (Opened),Non-returnable once opened,no,0,no

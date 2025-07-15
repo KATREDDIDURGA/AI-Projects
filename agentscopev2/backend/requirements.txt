@@ -1,0 +1,22 @@
+# Backend core
+fastapi
+uvicorn
+
+# TogetherAI LLM SDK
+together
+
+# LangChain core for ReAct agent
+langchain==0.2.0
+langchain-core==0.2.43
+
+# Data processing
+pandas
+
+# Frontend
+streamlit==1.46.1
+
+# Local logging and environment
+python-dotenv
+
+# For live polling from Streamlit
+sseclient-py
