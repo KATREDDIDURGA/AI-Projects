@@ -18,3 +18,7 @@ evaluation/*.txt
 # IDE files
 .vscode/
 .idea/
+backend/venv/
+backend/.env
+__pycache__/
+*.pyc

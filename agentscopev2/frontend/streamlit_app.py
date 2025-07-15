@@ -48,3 +48,5 @@ if "run_id" in st.session_state:
 
 st.write("---")
 st.caption("Polling-based live debugging — zero buffering, real-time timeline, early fallback visibility.")
+
+

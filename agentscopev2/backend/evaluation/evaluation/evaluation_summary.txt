@@ -1,0 +1,5 @@
+Pass Rate: 0.0%
+1. Wrong product received Gaming Mouse => FAIL
+2. Broken Smartwatch Strap => FAIL
+3. Refund for damaged Battery => FAIL
+4. Refund for Digital Goods purchased last week => FAIL
