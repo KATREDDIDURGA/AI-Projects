@@ -89,7 +89,8 @@ agentscope/
 │
 └── README.md
 📈 Demo Video
-📺 Link: (https://github.com/KATREDDIDURGA/AI-Projects/blob/main/agentscopev2/agentscope_architecture.png)
+
+📌 **Architecture Diagram:** See [`[docs/architecture_diagram.md](https://github.com/KATREDDIDURGA/AI-Projects/blob/main/agentscopev2/agentscope_architecture.png)`]([docs/architecture_diagram.md](https://github.com/KATREDDIDURGA/AI-Projects/blob/main/agentscopev2/agentscope_architecture.png)).
 
 📌 Future Extensions
 ✅ Multi-agent support (LangGraph)
