@@ -1,0 +1,5 @@
+Query,Final Decision,Expected,Confidence,Expected Confidence,Pass
+Wrong product received Gaming Mouse,Refund Approved,Refund Approved,0.9,0.9,True
+Broken Smartwatch Strap,Refund Approved,Fallback due to policy restriction,0.9,0.3,False
+Refund for damaged Battery,Fallback due to no transaction match,Fallback due to policy restriction,0.3,0.3,False
+Refund for Digital Goods purchased last week,Fallback due to no transaction match,Fallback due to policy restriction,0.3,0.3,False

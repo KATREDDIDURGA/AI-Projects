@@ -1,0 +1,16 @@
+# Backend
+fastapi==0.110.2
+uvicorn[standard]==0.29.0
+pandas==2.2.2
+together==0.2.9
+httpx==0.27.0
+
+# Frontend
+streamlit==1.46.1
+
+# Dev Tools
+black==24.4.2
+isort==5.13.2
+
+
+d9e9e671cb6aef51d3412e9efc4cc30b9e8f76064779278514cbb5323aae93bb
