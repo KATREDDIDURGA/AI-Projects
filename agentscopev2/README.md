@@ -89,7 +89,7 @@ agentscope/
 │
 └── README.md
 📈 Demo Video
-📺 Link: [Add your YouTube demo link here]
+📺 Link: (https://github.com/KATREDDIDURGA/AI-Projects/blob/main/agentscopev2/agentscope_architecture.png)
 
 📌 Future Extensions
 ✅ Multi-agent support (LangGraph)
