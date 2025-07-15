@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Streamlit cache
+.streamlit/
+
+# Evaluation outputs
+evaluation/*.csv
+evaluation/*.txt
+
+# System files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
