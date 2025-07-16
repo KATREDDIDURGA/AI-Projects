@@ -1,0 +1,629 @@
+"""
+AgentScope Execution Service
+
+Manages concurrent agent execution, real-time streaming, and lifecycle management
+with proper resource management and WebSocket communication.
+"""
+
+import asyncio
+import json
+import logging
+import time
+import uuid
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Any, AsyncGenerator, Callable
+from enum import Enum
+
+import redis.asyncio as redis
+from fastapi import WebSocket, WebSocketDisconnect
+
+from app.core.config import settings
+from app.core.database import db_manager, AgentRun
+from app.agents.base_agent import BaseAgent, AgentContext, FallbackTrigger, AgentExecutionError
+from app.agents.refund_agent import RefundAgent
+from app.models.schemas import (
+    AgentRunResponse, AgentStepResponse, StepStreamUpdate, RunStatusUpdate,
+    AgentStatus, StepType, agent_run_to_response
+)
+
+# Configure logging
+logger = logging.getLogger(__name__)
+
+
+class ExecutionStatus(str, Enum):
+    """Agent execution status for internal tracking"""
+    QUEUED = "queued"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    CANCELLED = "cancelled"
+
+
+class AgentExecution:
+    """Represents a single agent execution with metadata and state"""
+    
+    def __init__(self, run_id: str, agent_type: str, query: str, metadata: Optional[Dict] = None):
+        self.run_id = run_id
+        self.agent_type = agent_type
+        self.query = query
+        self.metadata = metadata or {}
+        
+        # Execution state
+        self.status = ExecutionStatus.QUEUED
+        self.started_at: Optional[datetime] = None
+        self.completed_at: Optional[datetime] = None
+        
+        # Task management
+        self.task: Optional[asyncio.Task] = None
+        self.cancelled = False
+        
+        # Real-time subscribers (WebSocket connections)
+        self.subscribers: List[WebSocket] = []
+        
+        # Performance tracking
+        self.steps_completed = 0
+        self.last_step_time: Optional[datetime] = None
+        
+        # Results
+        self.final_result: Optional[str] = None
+        self.error_message: Optional[str] = None
+        self.confidence_score: Optional[float] = None
+    
+    @property
+    def execution_time_ms(self) -> Optional[int]:
+        """Get execution time in milliseconds"""
+        if not self.started_at:
+            return None
+        
+        end_time = self.completed_at or datetime.utcnow()
+        return int((end_time - self.started_at).total_seconds() * 1000)
+    
+    @property
+    def is_active(self) -> bool:
+        """Check if execution is actively running"""
+        return self.status == ExecutionStatus.RUNNING
+    
+    @property
+    def is_completed(self) -> bool:
+        """Check if execution is completed (success or failure)"""
+        return self.status in [ExecutionStatus.COMPLETED, ExecutionStatus.FAILED, ExecutionStatus.CANCELLED]
+
+
+class AgentRegistry:
+    """Registry of available agent types"""
+    
+    def __init__(self):
+        self._agents: Dict[str, Callable[[], BaseAgent]] = {
+            "refund_agent": RefundAgent,
+            # Add more agent types here in the future
+            # "fraud_agent": FraudAgent,
+            # "support_agent": SupportAgent,
+        }
+    
+    def get_agent(self, agent_type: str) -> Optional[BaseAgent]:
+        """Get an agent instance by type"""
+        agent_class = self._agents.get(agent_type)
+        if agent_class:
+            return agent_class()
+        return None
+    
+    def list_agent_types(self) -> List[str]:
+        """Get list of available agent types"""
+        return list(self._agents.keys())
+    
+    def register_agent(self, agent_type: str, agent_class: Callable[[], BaseAgent]) -> None:
+        """Register a new agent type"""
+        self._agents[agent_type] = agent_class
+
+
+class ExecutionService:
+    """
+    Manages agent execution lifecycle, concurrency, and real-time communication
+    """
+    
+    def __init__(self):
+        self.redis_client: Optional[redis.Redis] = None
+        self.agent_registry = AgentRegistry()
+        
+        # Active executions
+        self.active_executions: Dict[str, AgentExecution] = {}
+        
+        # Configuration
+        self.max_concurrent_executions = 50
+        self.execution_timeout = settings.agents.AGENT_TOTAL_TIMEOUT
+        self.cleanup_interval = 300  # 5 minutes
+        
+        # Background tasks
+        self._cleanup_task: Optional[asyncio.Task] = None
+        self._initialized = False
+    
+    async def initialize(self) -> None:
+        """Initialize the execution service"""
+        if self._initialized:
+            return
+        
+        try:
+            # Initialize Redis connection
+            if settings.redis.USE_REDIS:
+                self.redis_client = redis.from_url(
+                    settings.redis.redis_url,
+                    decode_responses=True,
+                    socket_timeout=settings.redis.REDIS_SOCKET_TIMEOUT,
+                    socket_connect_timeout=settings.redis.REDIS_SOCKET_CONNECT_TIMEOUT
+                )
+                
+                # Test Redis connection
+                #await self.redis_client.ping()
+                logger.info("Connected to Redis for state management")
+            else:
+                logger.info("Using in-memory state management (Redis disabled)")
+            
+            # Start background cleanup task
+            self._cleanup_task = asyncio.create_task(self._cleanup_loop())
+            
+            self._initialized = True
+            logger.info("Execution service initialized successfully")
+            
+        except Exception as e:
+            logger.error(f"Failed to initialize execution service: {e}")
+            raise
+    
+    async def shutdown(self) -> None:
+        """Shutdown the execution service"""
+        try:
+            # Cancel all active executions
+            for execution in self.active_executions.values():
+                await self._cancel_execution(execution)
+            
+            # Cancel cleanup task
+            if self._cleanup_task:
+                self._cleanup_task.cancel()
+                try:
+                    await self._cleanup_task
+                except asyncio.CancelledError:
+                    pass
+            
+            # Close Redis connection
+            if self.redis_client:
+                await self.redis_client.close()
+            
+            self._initialized = False
+            logger.info("Execution service shutdown completed")
+            
+        except Exception as e:
+            logger.error(f"Error during execution service shutdown: {e}")
+    
+    async def start_agent_execution(
+        self,
+        agent_type: str,
+        query: str,
+        metadata: Optional[Dict] = None
+    ) -> str:
+        """
+        Start a new agent execution
+        
+        Returns:
+            run_id for tracking the execution
+        """
+        if not self._initialized:
+            await self.initialize()
+        
+        # Check if we can accept new executions
+        if len(self.active_executions) >= self.max_concurrent_executions:
+            raise AgentExecutionError("Maximum concurrent executions reached")
+        
+        # Validate agent type
+        agent = self.agent_registry.get_agent(agent_type)
+        if not agent:
+            raise AgentExecutionError(f"Unknown agent type: {agent_type}")
+        
+        # Create execution record
+        run_id = str(uuid.uuid4())
+        execution = AgentExecution(run_id, agent_type, query, metadata)
+        
+        # Store in active executions
+        self.active_executions[run_id] = execution
+        
+        # Create database record
+        try:
+            await db_manager.create_agent_run(run_id, query, agent_type)
+        except Exception as e:
+            # Cleanup on database error
+            del self.active_executions[run_id]
+            raise AgentExecutionError(f"Failed to create database record: {e}")
+        
+        # Start execution task
+        execution.task = asyncio.create_task(
+            self._execute_agent(execution, agent)
+        )
+        
+        # Store in Redis for cross-instance visibility
+        if self.redis_client:
+            await self._store_execution_state(execution)
+        
+        logger.info(f"Started agent execution: {run_id} ({agent_type})")
+        return run_id
+    
+    async def _execute_agent(self, execution: AgentExecution, agent: BaseAgent) -> None:
+        """Execute an agent with full monitoring and error handling"""
+        execution.status = ExecutionStatus.RUNNING
+        execution.started_at = datetime.utcnow()
+        
+        try:
+            # Create agent context
+            context = AgentContext(execution.run_id, execution.query, execution.metadata)
+            
+            # Set up real-time monitoring
+            original_log_step = agent._log_step
+            agent._log_step = self._create_monitored_log_step(execution, original_log_step)
+            
+            # Execute agent logic
+            result = await agent.execute_logic(context)
+            
+            # Update execution state
+            execution.status = ExecutionStatus.COMPLETED
+            execution.final_result = result
+            execution.confidence_score = context.overall_confidence
+            execution.completed_at = datetime.utcnow()
+            
+            # Notify subscribers
+            await self._broadcast_completion(execution)
+            
+            logger.info(f"Agent execution completed: {execution.run_id}")
+            
+        except FallbackTrigger as e:
+            execution.status = ExecutionStatus.COMPLETED
+            execution.final_result = f"Fallback: {e.reason}"
+            execution.confidence_score = e.confidence
+            execution.completed_at = datetime.utcnow()
+            
+            await self._broadcast_fallback(execution, e)
+            logger.warning(f"Agent execution fallback: {execution.run_id} - {e.reason}")
+            
+        except asyncio.CancelledError:
+            execution.status = ExecutionStatus.CANCELLED
+            execution.completed_at = datetime.utcnow()
+            
+            await self._broadcast_cancellation(execution)
+            logger.info(f"Agent execution cancelled: {execution.run_id}")
+            
+        except Exception as e:
+            execution.status = ExecutionStatus.FAILED
+            execution.error_message = str(e)
+            execution.completed_at = datetime.utcnow()
+            
+            await self._broadcast_error(execution, e)
+            logger.error(f"Agent execution failed: {execution.run_id} - {e}")
+        
+        finally:
+            # Update Redis state
+            if self.redis_client:
+                await self._store_execution_state(execution)
+            
+            # Schedule cleanup
+            asyncio.create_task(self._schedule_cleanup(execution.run_id))
+    
+    def _create_monitored_log_step(self, execution: AgentExecution, original_log_step):
+        """Create a monitored version of the agent's log_step method"""
+        
+        async def monitored_log_step(context, step_type, description, observation=None, confidence=None):
+            # Call original log_step
+            await original_log_step(context, step_type, description, observation, confidence)
+            
+            # Update execution tracking
+            execution.steps_completed = context.current_step
+            execution.last_step_time = datetime.utcnow()
+            
+            # Create step response
+            step_response = AgentStepResponse(
+                step_number=context.current_step,
+                step_type=step_type,
+                description=description,
+                observation=observation,
+                started_at=datetime.utcnow(),
+                confidence=confidence
+            )
+            
+            # Broadcast to subscribers
+            await self._broadcast_step_update(execution, step_response)
+            
+            # Update Redis state
+            if self.redis_client:
+                await self._store_execution_state(execution)
+        
+        return monitored_log_step
+    
+    async def subscribe_to_execution(self, run_id: str, websocket: WebSocket) -> None:
+        """Subscribe a WebSocket to execution updates"""
+        execution = self.active_executions.get(run_id)
+        if not execution:
+            # Try to load from database for historical runs
+            agent_run = await db_manager.get_agent_run(run_id)
+            if not agent_run:
+                await websocket.send_text(json.dumps({
+                    "error": "Run not found",
+                    "run_id": run_id
+                }))
+                return
+            
+            # Send historical data and close
+            response = agent_run_to_response(agent_run)
+            await websocket.send_text(json.dumps({
+                "type": "complete_run",
+                "data": response.dict()
+            }))
+            return
+        
+        # Add to subscribers
+        execution.subscribers.append(websocket)
+        
+        # Send current state
+        await self._send_current_state(execution, websocket)
+        
+        try:
+            # Keep connection alive until completion or disconnect
+            while not execution.is_completed:
+                await asyncio.sleep(1)
+                
+                # Send heartbeat
+                await websocket.send_text(json.dumps({
+                    "type": "heartbeat",
+                    "timestamp": datetime.utcnow().isoformat()
+                }))
+            
+        except WebSocketDisconnect:
+            pass
+        finally:
+            # Remove from subscribers
+            if websocket in execution.subscribers:
+                execution.subscribers.remove(websocket)
+    
+    async def _send_current_state(self, execution: AgentExecution, websocket: WebSocket) -> None:
+        """Send current execution state to a WebSocket"""
+        try:
+            # Get current database state
+            agent_run = await db_manager.get_agent_run(execution.run_id)
+            if agent_run:
+                response = agent_run_to_response(agent_run)
+                await websocket.send_text(json.dumps({
+                    "type": "current_state",
+                    "data": response.dict()
+                }))
+        except Exception as e:
+            logger.error(f"Failed to send current state: {e}")
+    
+    async def _broadcast_step_update(self, execution: AgentExecution, step: AgentStepResponse) -> None:
+        """Broadcast step update to all subscribers"""
+        if not execution.subscribers:
+            return
+        
+        message = json.dumps({
+            "type": "step_update",
+            "data": StepStreamUpdate(
+                run_id=execution.run_id,
+                step=step,
+                total_steps=execution.steps_completed,
+                is_final=False
+            ).dict()
+        })
+        
+        # Send to all subscribers
+        disconnected = []
+        for websocket in execution.subscribers:
+            try:
+                await websocket.send_text(message)
+            except Exception:
+                disconnected.append(websocket)
+        
+        # Remove disconnected WebSockets
+        for ws in disconnected:
+            execution.subscribers.remove(ws)
+    
+    async def _broadcast_completion(self, execution: AgentExecution) -> None:
+        """Broadcast completion to all subscribers"""
+        if not execution.subscribers:
+            return
+        
+        # Get final state from database
+        agent_run = await db_manager.get_agent_run(execution.run_id)
+        if agent_run:
+            response = agent_run_to_response(agent_run)
+            message = json.dumps({
+                "type": "execution_complete",
+                "data": response.dict()
+            })
+            
+            # Send to all subscribers
+            for websocket in execution.subscribers:
+                try:
+                    await websocket.send_text(message)
+                except Exception:
+                    pass
+        
+        # Clear subscribers
+        execution.subscribers.clear()
+    
+    async def _broadcast_fallback(self, execution: AgentExecution, fallback: FallbackTrigger) -> None:
+        """Broadcast fallback trigger to subscribers"""
+        if not execution.subscribers:
+            return
+        
+        message = json.dumps({
+            "type": "fallback_triggered",
+            "data": {
+                "run_id": execution.run_id,
+                "reason": fallback.reason,
+                "confidence": fallback.confidence,
+                "suggestion": fallback.suggestion
+            }
+        })
+        
+        for websocket in execution.subscribers:
+            try:
+                await websocket.send_text(message)
+            except Exception:
+                pass
+    
+    async def _broadcast_error(self, execution: AgentExecution, error: Exception) -> None:
+        """Broadcast error to subscribers"""
+        if not execution.subscribers:
+            return
+        
+        message = json.dumps({
+            "type": "execution_error",
+            "data": {
+                "run_id": execution.run_id,
+                "error": str(error),
+                "error_type": type(error).__name__
+            }
+        })
+        
+        for websocket in execution.subscribers:
+            try:
+                await websocket.send_text(message)
+            except Exception:
+                pass
+    
+    async def _broadcast_cancellation(self, execution: AgentExecution) -> None:
+        """Broadcast cancellation to subscribers"""
+        if not execution.subscribers:
+            return
+        
+        message = json.dumps({
+            "type": "execution_cancelled",
+            "data": {"run_id": execution.run_id}
+        })
+        
+        for websocket in execution.subscribers:
+            try:
+                await websocket.send_text(message)
+            except Exception:
+                pass
+    
+    async def get_execution_status(self, run_id: str) -> Optional[Dict[str, Any]]:
+        """Get current execution status"""
+        execution = self.active_executions.get(run_id)
+        if execution:
+            return {
+                "run_id": run_id,
+                "status": execution.status.value,
+                "started_at": execution.started_at.isoformat() if execution.started_at else None,
+                "steps_completed": execution.steps_completed,
+                "execution_time_ms": execution.execution_time_ms,
+                "active_subscribers": len(execution.subscribers)
+            }
+        
+        # Check database for completed runs
+        agent_run = await db_manager.get_agent_run(run_id)
+        if agent_run:
+            return {
+                "run_id": run_id,
+                "status": agent_run.status,
+                "started_at": agent_run.started_at.isoformat(),
+                "completed_at": agent_run.completed_at.isoformat() if agent_run.completed_at else None,
+                "steps_completed": agent_run.total_steps,
+                "execution_time_ms": agent_run.execution_time_ms,
+                "final_result": agent_run.final_decision
+            }
+        
+        return None
+    
+    async def cancel_execution(self, run_id: str) -> bool:
+        """Cancel an active execution"""
+        execution = self.active_executions.get(run_id)
+        if execution and execution.is_active:
+            await self._cancel_execution(execution)
+            return True
+        return False
+    
+    async def _cancel_execution(self, execution: AgentExecution) -> None:
+        """Cancel a specific execution"""
+        if execution.task and not execution.task.done():
+            execution.task.cancel()
+            try:
+                await execution.task
+            except asyncio.CancelledError:
+                pass
+        
+        execution.cancelled = True
+        execution.status = ExecutionStatus.CANCELLED
+    
+    async def list_active_executions(self) -> List[Dict[str, Any]]:
+        """List all active executions"""
+        return [
+            {
+                "run_id": execution.run_id,
+                "agent_type": execution.agent_type,
+                "status": execution.status.value,
+                "query": execution.query[:100] + "..." if len(execution.query) > 100 else execution.query,
+                "started_at": execution.started_at.isoformat() if execution.started_at else None,
+                "steps_completed": execution.steps_completed,
+                "subscribers": len(execution.subscribers)
+            }
+            for execution in self.active_executions.values()
+        ]
+    
+    async def _store_execution_state(self, execution: AgentExecution) -> None:
+        """Store execution state in Redis"""
+        if not self.redis_client or not settings.redis.USE_REDIS:
+            # Skip Redis storage if not available
+            return
+        
+        try:
+            key = f"{settings.redis.AGENT_RUNS_PREFIX}:{execution.run_id}"
+            data = {
+                "run_id": execution.run_id,
+                "agent_type": execution.agent_type,
+                "status": execution.status.value,
+                "started_at": execution.started_at.isoformat() if execution.started_at else None,
+                "steps_completed": execution.steps_completed,
+                "last_update": datetime.utcnow().isoformat()
+            }
+            
+            await self.redis_client.setex(
+                key,
+                timedelta(hours=24),  # Expire after 24 hours
+                json.dumps(data)
+            )
+        except Exception as e:
+            logger.error(f"Failed to store execution state in Redis: {e}")
+            # Continue without Redis - don't fail the execution
+    
+    async def _cleanup_loop(self) -> None:
+        """Background task to cleanup completed executions"""
+        while True:
+            try:
+                await asyncio.sleep(self.cleanup_interval)
+                await self._cleanup_completed_executions()
+            except asyncio.CancelledError:
+                break
+            except Exception as e:
+                logger.error(f"Error in cleanup loop: {e}")
+    
+    async def _cleanup_completed_executions(self) -> None:
+        """Remove completed executions from memory"""
+        current_time = datetime.utcnow()
+        to_remove = []
+        
+        for run_id, execution in self.active_executions.items():
+            if execution.is_completed and execution.completed_at:
+                # Remove executions completed more than 1 hour ago
+                if current_time - execution.completed_at > timedelta(hours=1):
+                    to_remove.append(run_id)
+        
+        for run_id in to_remove:
+            del self.active_executions[run_id]
+            logger.debug(f"Cleaned up completed execution: {run_id}")
+    
+    async def _schedule_cleanup(self, run_id: str, delay_minutes: int = 60) -> None:
+        """Schedule cleanup of a specific execution"""
+        await asyncio.sleep(delay_minutes * 60)
+        if run_id in self.active_executions:
+            execution = self.active_executions[run_id]
+            if execution.is_completed:
+                del self.active_executions[run_id]
+                logger.debug(f"Scheduled cleanup completed for: {run_id}")
+
+
+# Global execution service instance
+execution_service = ExecutionService()

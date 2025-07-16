@@ -1,0 +1,9 @@
+item,policy_text,refund_allowed
+mouse,30 day return policy for defective items,yes
+webcam,90 day warranty replacement only,no
+laptop,1 year warranty with 30 day return window,yes
+keyboard,30 day return policy,yes
+monitor,Dead pixel policy - 7+ dead pixels for return,yes
+headset,30 day return policy,yes
+smartwatch,No returns on wearable devices,no
+battery,No returns on consumable items,no

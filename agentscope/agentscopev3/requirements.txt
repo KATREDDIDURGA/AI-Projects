@@ -1,0 +1,90 @@
+# ================================
+# AGENTSCOPE PRODUCTION REQUIREMENTS
+# Compatible versions for restricted environments
+# ================================
+
+# Core Web Framework
+fastapi==0.104.1                # Modern async web framework
+uvicorn[standard]==0.24.0        # ASGI server with performance extras
+pydantic==2.5.0                 # Data validation and serialization
+pydantic-settings==2.1.0        # Configuration management
+
+# Database & Persistence  
+sqlalchemy[asyncio]==2.0.23      # ORM for SQLite with async support
+alembic==1.13.1                  # Database migrations
+aiosqlite==0.19.0                # Async SQLite driver (no installation required)
+sqlite-utils==3.35               # SQLite utilities and CLI tools
+greenlet==3.0.3                  # Required for SQLAlchemy async
+
+# Real-time Communication
+redis==5.0.1                    # In-memory state management
+websockets==12.0                # Real-time WebSocket communication
+python-socketio==5.10.0         # Socket.IO support
+aioredis==2.0.1                 # Async Redis client
+
+# AI & LLM Integration
+together==0.2.7                 # Together AI API client
+openai==1.3.7                   # OpenAI compatibility (future-proofing)
+tiktoken==0.5.2                 # Token counting for LLMs
+tenacity==8.2.3                 # Retry logic for API calls
+
+# Data Processing & Analysis
+pandas==2.1.4                   # Data manipulation
+numpy==1.25.2                   # Numerical computing
+jsonschema==4.20.0              # JSON validation
+python-multipart==0.0.6         # File upload handling
+
+# Configuration & Environment
+python-dotenv==1.0.0            # Environment variable management
+pyyaml==6.0.1                   # YAML configuration files
+click==8.1.7                    # CLI interface
+
+# HTTP & Networking
+httpx==0.25.2                   # Async HTTP client
+requests==2.31.0                # Sync HTTP client (fallback)
+aiofiles==23.2.1                # Async file operations
+
+# Monitoring & Observability
+prometheus-client==0.19.0       # Metrics collection
+structlog==23.2.0               # Structured logging
+sentry-sdk[fastapi]==1.38.0     # Error tracking
+
+# Security & Authentication (Compatible versions)
+passlib[bcrypt]==1.7.4          # Password hashing
+python-jose==3.3.0              # JWT tokens (without cryptography extra)
+cryptography>=3.4.8,<42.0.0     # Compatible cryptography version
+
+# Development & Testing
+pytest==7.4.3                   # Testing framework
+pytest-asyncio==0.21.1          # Async testing support
+pytest-cov==4.1.0               # Code coverage
+factory-boy==3.3.0              # Test data generation
+
+# Code Quality
+black==23.11.0                  # Code formatting
+isort==5.12.0                   # Import sorting
+flake8==6.1.0                   # Linting
+mypy==1.7.1                     # Type checking
+
+# Frontend (Streamlit)
+streamlit==1.28.2               # Web UI framework
+plotly==5.17.0                  # Interactive visualizations
+streamlit-autorefresh==1.0.1    # Auto-refresh components
+
+# Data Validation & Serialization
+marshmallow==3.20.1             # Alternative serialization
+validators==0.22.0              # Common validation functions
+
+# Utilities
+python-dateutil==2.8.2          # Date/time utilities
+pytz==2023.3                    # Timezone handling
+regex==2023.10.3                # Advanced regex support
+
+# Performance & Concurrency
+cachetools==5.3.2               # Caching utilities
+
+# File Processing
+openpyxl==3.1.2                 # Excel file handling
+
+# Production Deployment
+gunicorn==21.2.0                # Production WSGI server
