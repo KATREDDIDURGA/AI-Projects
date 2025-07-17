@@ -101,7 +101,4 @@ insurance-ai-assistant/
 - API endpoints for enterprise integration
 - Advanced fraud pattern learning
 
-## Contact
-
-Built to demonstrate professional AI engineering capabilities for DXC Technology interview.
 """
