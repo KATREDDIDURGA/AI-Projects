@@ -1,0 +1,35 @@
+# --- CORE WEB FRAMEWORK ---
+fastapi
+uvicorn[standard]
+
+# --- ASYNC DB SUPPORT ---
+sqlalchemy[asyncio]
+aiosqlite
+alembic
+
+# --- VALIDATION & CONFIG ---
+pydantic
+pydantic-settings
+python-dotenv
+
+# --- REDIS + COMMUNICATION ---
+redis
+websockets
+
+# --- LLM INTEGRATION (NO OpenAI) ---
+together
+tiktoken
+
+# --- UTILITIES ---
+python-multipart
+pytz
+tenacity
+loguru
+
+# --- OBSERVABILITY (Optional later) ---
+prometheus-client
+structlog
+
+# --- TESTING ---
+pytest
+pytest-asyncio

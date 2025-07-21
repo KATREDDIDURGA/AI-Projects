@@ -1,0 +1,10 @@
+{
+  "refund_mouse": {
+    "max_days": 30,
+    "fail_reason": "Return period exceeded for mouse"
+  },
+  "refund_keyboard": {
+    "max_days": 30,
+    "fail_reason": "Keyboard must be returned within 30 days"
+  }
+}
