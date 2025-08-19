@@ -3,7 +3,7 @@
 # AI Insurance Claims Assistant
 
 A professional AI-powered insurance claims processing system demonstrating end-to-end AI engineering skills.
-
+ ▶️ [Watch the demo video](https://www.linkedin.com/posts/sri-sai-durga-katreddi-_ai-machinelearning-insurtech-activity-7340869532523098112-Mmr6?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEtJ6FcB7lMViSeOXn0HBXn17Y9WLSrFJVU)
 ![Architecture Diagram](https://github.com/KATREDDIDURGA/AI-Projects/raw/main/AI%20Insurance%20Claims%20Assistant/Architecture%20Diagram.png)
 
 ## Features
