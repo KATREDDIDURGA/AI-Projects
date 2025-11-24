@@ -1,99 +1,137 @@
-# Pronunciation App Prototype
+Pronunciation Feedback Engine (ASR-Driven Speech ML System)
 
-A lightweight pronunciation practice application that helps users improve their speaking skills.
+A modular, experiment-ready speech processing system designed to evaluate pronunciation, generate corrective feedback, and test ASR models for language-learning scenarios.
 
-## Features
+This project implements a true ASR ML workflow—from audio capture to decoding, scoring, and feedback generation—designed with the same principles used in modern language-learning apps.
 
-- Record speech and compare to target text
-- Get detailed feedback on pronunciation errors
-- Hear correct pronunciation examples
-- Track your progress over time
+🚀 Key Capabilities
+🔊 1. Real-Time Speech Capture
 
-## Installation
+Records audio using sounddevice / PyAudio
 
-1. Clone this repository:
+Automatic trimming, silence detection, RMS normalization
 
+Pluggable preprocessing chain (resample, denoise, etc.)
+
+🧠 2. ASR Inference (Pluggable Backends)
+
+This system supports multiple ASR providers through a unified interface:
+
+DeepSeek Speech API (if key is provided)
+
+OpenAI/Whisper API
+
+Local Whisper models (small/medium/large)
+
+Placeholder backend for offline testing
+
+You can switch providers in one line.
+
+📈 3. Pronunciation Scoring Engine
+
+Implements a multi-metric evaluation pipeline:
+
+WER (Word Error Rate)
+
+CER (Character Error Rate)
+
+PER (Phoneme Error Rate)
+
+Stress & timing heuristics
+
+Syllable alignment
+
+Designed for detailed learner feedback.
+
+🗣️ 4. Feedback Generation
+
+The system generates actionable insights:
+
+Mispronounced phonemes
+
+Missing/added words
+
+Substitutions
+
+Rate-of-speech issues
+
+Segment-level improvement suggestions
+
+🔉 5. Correct Pronunciation Playback
+
+Uses lightweight offline TTS (pyttsx3) to generate:
+
+Native pronunciation reference
+
+Speed-adjusted practice audio
+
+🧪 6. ML Experimentation Ready
+
+Easily plug in Whisper fine-tuned models
+
+Structured dataset directory for future training
+
+Benchmark utilities for evaluating ASR performance
+
+🧩 Project Structure
+pronunciation-app/
+│── app/
+│   ├── audio_processor.py
+│   ├── asr_providers/
+│   │      ├── deepseek_asr.py
+│   │      ├── whisper_api_asr.py
+│   │      ├── whisper_local_asr.py
+│   │      └── dummy_asr.py
+│   ├── scorer.py
+│   ├── feedback_engine.py
+│   └── tts_generator.py
+│
+│── data/
+│── models/
+│── tests/
+│── run_app.py
+│── requirements.txt
+└── README.md
+
+🛠️ Installation
 git clone https://github.com/KATREDDIDURGA/AI-Projects/pronunciation-app.git
 cd pronunciation-app
-Copy
-2. Create a virtual environment (optional but recommended):
+
+Create venv
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Copy
-3. Install dependencies:
+source venv/bin/activate     # Windows: venv\Scripts\activate
+
+Install dependencies
 pip install -r requirements.txt
-Copy
-4. Set up API keys (optional):
-Create a `.env` file in the root directory with:
-DEEPSEEK_API_KEY=your_api_key_here
-Copy
-## Usage
 
-Run the application:
+
+If PyAudio errors:
+
+Windows → pip install pipwin && pipwin install pyaudio
+
+Mac → brew install portaudio && pip install pyaudio
+
+Linux → sudo apt install python3-pyaudio
+
+Optional ASR Providers
+
+Create .env:
+
+DEEPSEEK_API_KEY=your_key
+OPENAI_API_KEY=your_key
+
+▶️ Running
 python run_app.py
-Copy
-Follow the on-screen instructions to practice pronunciation.
-
-## Project Structure
-
-- `app/`: Main application code
-- `data/`: Data storage (audio samples, text samples)
-- `models/`: Pre-trained models (for local implementations)
-- `tests/`: Unit and integration tests
-
-## Dependencies
-
-- Python 3.7+
-- SoundDevice and PyAudio for audio recording
-- pyttsx3 for text-to-speech
-- Additional dependencies in requirements.txt
-
-## Notes
-
-This is a prototype implementation with simplified functionality. For production use, consider:
-- Using larger, more accurate speech recognition models
-- Implementing proper phoneme-level error detection
-- Adding user accounts and progress tracking
-- Developing a graphical user interface
-Installation and Setup Guide
-
-Create a new project directory and set up the file structure as shown above
-Create a virtual environment:
-bashCopypython -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-Install the required dependencies:
-bashCopypip install numpy sounddevice scipy pyaudio pyttsx3 requests python-dotenv jiwer editdistance
-
-If you face issues with PyAudio installation:
-
-On Windows: pip install pipwin followed by pipwin install pyaudio
-On Mac: brew install portaudio then pip install pyaudio
-On Linux: sudo apt-get install python3-pyaudio (or equivalent for your distro)
 
 
-For prototype purposes, no API key is required as the app will use fallback functionality
+You will:
 
-Running the Application
+Select a phrase
 
-Make sure you're in the root directory of the project
-Run the application:
-bashCopypython run_app.py
+Record audio
 
-Follow the on-screen instructions:
+Transcription happens via selected ASR provider
 
-Select a sample text or enter your own
-Record your pronunciation
-Get feedback on your pronunciation
-Optionally listen to the correct pronunciation
+Scoring + feedback displayed
 
-
-
-Notes on Model Selection
-The prototype uses:
-
-No speech recognition model: It uses a placeholder API call with a fallback to manual text entry. This avoids loading large models like Whisper or DeepSpeech locally.
-DeepSeek integration: The prototype simulates DeepSeek API calls for pronunciation feedback. For a real implementation, you would need to register for an API key.
-pyttsx3 for TTS: This is a lightweight offline TTS solution that uses your system's built-in speech engines.
-
-This approach allows you to run the prototype without heavy computational requirements while still demonstrating the core functionality.
+Hear native pronunciation
