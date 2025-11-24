@@ -1,137 +1,163 @@
-Pronunciation Feedback Engine (ASR-Driven Speech ML System)
+# Pronunciation Feedback Engine (ASR-Driven Speech ML System)
 
-A modular, experiment-ready speech processing system designed to evaluate pronunciation, generate corrective feedback, and test ASR models for language-learning scenarios.
+A modular speech-processing system for evaluating pronunciation, analyzing ASR accuracy, and generating corrective feedback—designed similarly to ASR workflows used in modern language-learning apps.
 
-This project implements a true ASR ML workflow—from audio capture to decoding, scoring, and feedback generation—designed with the same principles used in modern language-learning apps.
+## 🚀 Features
 
-🚀 Key Capabilities
-🔊 1. Real-Time Speech Capture
+- 🎤 Real-time speech recording
+- 🧠 ASR inference (DeepSeek, Whisper API, Whisper local, Dummy backend)
+- 📝 Pronunciation scoring (WER, CER, PER)
+- 🗣️ Detailed feedback generation
+- 🔊 Offline TTS for reference pronunciation
+- 📊 Benchmark utilities for ASR evaluation
 
-Records audio using sounddevice / PyAudio
+## 📁 Project Structure
 
-Automatic trimming, silence detection, RMS normalization
-
-Pluggable preprocessing chain (resample, denoise, etc.)
-
-🧠 2. ASR Inference (Pluggable Backends)
-
-This system supports multiple ASR providers through a unified interface:
-
-DeepSeek Speech API (if key is provided)
-
-OpenAI/Whisper API
-
-Local Whisper models (small/medium/large)
-
-Placeholder backend for offline testing
-
-You can switch providers in one line.
-
-📈 3. Pronunciation Scoring Engine
-
-Implements a multi-metric evaluation pipeline:
-
-WER (Word Error Rate)
-
-CER (Character Error Rate)
-
-PER (Phoneme Error Rate)
-
-Stress & timing heuristics
-
-Syllable alignment
-
-Designed for detailed learner feedback.
-
-🗣️ 4. Feedback Generation
-
-The system generates actionable insights:
-
-Mispronounced phonemes
-
-Missing/added words
-
-Substitutions
-
-Rate-of-speech issues
-
-Segment-level improvement suggestions
-
-🔉 5. Correct Pronunciation Playback
-
-Uses lightweight offline TTS (pyttsx3) to generate:
-
-Native pronunciation reference
-
-Speed-adjusted practice audio
-
-🧪 6. ML Experimentation Ready
-
-Easily plug in Whisper fine-tuned models
-
-Structured dataset directory for future training
-
-Benchmark utilities for evaluating ASR performance
-
-🧩 Project Structure
+```
 pronunciation-app/
-│── app/
+│
+├── app/
 │   ├── audio_processor.py
 │   ├── asr_providers/
-│   │      ├── deepseek_asr.py
-│   │      ├── whisper_api_asr.py
-│   │      ├── whisper_local_asr.py
-│   │      └── dummy_asr.py
+│   │   ├── deepseek_asr.py
+│   │   ├── whisper_api_asr.py
+│   │   ├── whisper_local_asr.py
+│   │   └── dummy_asr.py
 │   ├── scorer.py
 │   ├── feedback_engine.py
 │   └── tts_generator.py
 │
-│── data/
-│── models/
-│── tests/
-│── run_app.py
-│── requirements.txt
+├── data/
+├── models/
+├── tests/
+│
+├── run_app.py
+├── requirements.txt
 └── README.md
+```
 
-🛠️ Installation
+## 🛠️ Installation
+
+### Clone the repository
+
+```bash
 git clone https://github.com/KATREDDIDURGA/AI-Projects/pronunciation-app.git
 cd pronunciation-app
+```
 
-Create venv
+### Create virtual environment
+
+```bash
 python -m venv venv
-source venv/bin/activate     # Windows: venv\Scripts\activate
+source venv/bin/activate      # Windows: venv\Scripts\activate
+```
 
-Install dependencies
+### Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
+### If PyAudio fails
 
-If PyAudio errors:
+**Windows:**
+```bash
+pip install pipwin
+pipwin install pyaudio
+```
 
-Windows → pip install pipwin && pipwin install pyaudio
+**Mac:**
+```bash
+brew install portaudio
+pip install pyaudio
+```
 
-Mac → brew install portaudio && pip install pyaudio
+**Linux:**
+```bash
+sudo apt install python3-pyaudio
+```
 
-Linux → sudo apt install python3-pyaudio
+## 🔑 Optional: Setup ASR API Keys
 
-Optional ASR Providers
+Create `.env` in the project root:
 
-Create .env:
+```env
+DEEPSEEK_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
+```
 
-DEEPSEEK_API_KEY=your_key
-OPENAI_API_KEY=your_key
+If no keys are added, the system automatically uses the fallback ASR backend.
 
-▶️ Running
+## ▶️ Running the App
+
+```bash
 python run_app.py
+```
 
+**Then:**
 
-You will:
+1. Choose or type a sentence
+2. Record your voice
+3. The ASR provider transcribes the speech
+4. System scores your pronunciation
+5. Generates corrections + native TTS sample
 
-Select a phrase
+## 📊 Pronunciation Scoring (for ASR evaluation)
 
-Record audio
+The engine computes:
 
-Transcription happens via selected ASR provider
+- **WER** – Word Error Rate
+- **CER** – Character Error Rate
+- **PER** – Phoneme Error Rate
+- Substitution / deletion / insertion patterns
+- Rate-of-speech analysis
 
-Scoring + feedback displayed
+This mirrors the metrics used in production ASR training pipelines.
 
-Hear native pronunciation
+## 🎧 Feedback Engine
+
+Feedback includes:
+
+- Mispronounced words
+- Incorrect phoneme patterns
+- Missing / added words
+- Stress/timing deviations
+- Suggested corrections
+- Native audio reference
+
+## 🧠 Model Ready Architecture
+
+The system supports:
+
+✔ Whisper API  
+✔ Whisper local models  
+✔ DeepSeek backend  
+✔ Dummy backend  
+✔ Add-your-own ASR provider in 1 file
+
+Designed for fine-tuning, custom datasets, and multilingual experimentation.
+
+## 🚀 Future Enhancements
+
+- Forced alignment (MFA / torchaudio)
+- Phoneme-level scoring with wav2vec2
+- Whisper fine-tuning pipeline
+- Multilingual dataset loading utilities
+- Real-time streaming ASR
+- Web-based UI
+
+## 📄 License
+
+MIT License
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## 📧 Contact
+
+For questions or feedback, reach out via GitHub issues.
+
+---
+
+**Built with ❤️ for speech ML researchers and language learners**
