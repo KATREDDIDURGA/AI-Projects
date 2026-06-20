@@ -18,5 +18,11 @@ class TestPhonemeConverter(unittest.TestCase):
         phonemes = self.converter.text_to_phonemes("that")
         self.assertIn('TH', phonemes)
 
+def test_empty_audio_input():
+    """Edge case: empty/silent audio should not crash the processor."""
+    result = process_audio(b"")
+    assert result is not None
+
+
 if __name__ == '__main__':
     unittest.main()
